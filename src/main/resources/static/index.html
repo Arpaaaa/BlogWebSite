@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客系统</title>
+</head>
+<body>
+    <h1>欢迎来到博客系统</h1>
+    <div id="loginStatus">
+        <a href="/login">登录</a>
+    </div>
+
+    <script>
+        // 检查是否已登录
+        const token = localStorage.getItem('token');
+        if (token) {
+            document.getElementById('loginStatus').innerHTML = `
+                <button onclick="logout()">退出登录</button>
+            `;
+        }
+
+        function logout() {
+            localStorage.removeItem('token');
+            window.location.reload();
+        }
+    </script>
+</body>
+</html> 
